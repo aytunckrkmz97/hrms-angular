@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+.navbar-brand {
+  font-family: "Roboto", sans-serif;
+}
+
+.btn-sign {
+  padding: 8px 25px;
+  border-radius: 15px;
+  background-color: #202a4d;
+  border-color: #0d101d;
+  outline: 0;
+  color: #fff;
+}
+
+.btn-sign:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+.nav-link {
+  margin: 0 15px;
+  color: #202a4d;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.bi {
+  margin-right: 4px;
+}

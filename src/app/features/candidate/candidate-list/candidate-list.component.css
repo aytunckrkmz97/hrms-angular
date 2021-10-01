@@ -1,0 +1,16 @@
+@import url("../../../../assets/primengTable.css");
+
+.card {
+  height: 18rem;
+  transition: all 300ms;
+  cursor: pointer;
+}
+
+.card:hover {
+  background-color: #f5f7f8;
+  transform: scale(1.05);
+}
+
+.bi {
+  font-size: 24px;
+}

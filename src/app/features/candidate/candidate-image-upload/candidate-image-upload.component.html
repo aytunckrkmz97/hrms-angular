@@ -1,0 +1,45 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header text-center fw-bold">Upload Image</div>
+        <div class="card-body">
+          <form [formGroup]="imgUploadForm" class="p-2">
+            <label for="formFile" class="form-label"
+              >Please choose your photo</label
+            >
+            <input
+              (change)="onFileSelected($event)"
+              class="form-control w-100"
+              formControlName="multipartFile"
+              type="file"
+              id="multipartFile"
+            />
+            <label for="formFile" class="form-label text-danger small"
+              >*This photo will change with your profile photo.</label
+            >
+            <div class="my-3">
+              <p-progressBar [value]="progress"></p-progressBar>
+            </div>
+            <div class="text-center">
+              <button
+                [disabled]="!imgUploadForm.valid"
+                class="btn btn-success"
+                (click)="imageUpload()"
+              >
+                Upload Image
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="imageUrl" class="col-md-6 ">
+      <div class="card border-bottom-0 d-flex justify-content-center align-items-center">
+        <div class="card-header text-center w-100 fw-bold">Image Preview</div>
+        <img [src]="imageUrl" width="50%" />
+      </div>
+    </div>
+  </div>
+</div>

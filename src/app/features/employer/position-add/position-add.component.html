@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <li class="list-group-item rounded fw-bold bg-secondary mt-3 text-light">
+        Active Positions
+      </li>
+      <ul class="list-group overflow-auto" style="height: 515px">
+        <li *ngFor="let position of positions" class="list-group-item">
+          {{ position.title }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-md-9 mt-3">
+      <div class="card">
+        <div class="card-header bg-success fw-bold fs-6 text-light text-center">Add Job Position</div>
+        <div class="card-body">
+          <form [formGroup]="positionAddForm">
+            <div class="form-group">
+              <label>Position title</label>
+              <div class="p-grid p-fluid">
+                <input
+                  type="text"
+                  pInputText
+                  formControlName="title"
+                  placeholder="Please enter position title"
+                />
+              </div>
+              <small
+                class="text-danger"
+                *ngIf="
+                  positionAddForm.get('title').hasError('required') &&
+                  positionAddForm.get('title').touched
+                "
+                >*Position title is required.</small
+              >
+            </div>
+
+            <div class="text-center">
+              <button
+              [disabled]="!positionAddForm.valid"
+              class="btn btn-success mt-3"
+              (click)="addPosition()"
+            >
+              Add Position
+            </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

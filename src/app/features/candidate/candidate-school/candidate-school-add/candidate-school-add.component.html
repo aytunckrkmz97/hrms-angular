@@ -1,0 +1,104 @@
+<div class="container w-75 mt-3">
+  <div class="card mb-4">
+    <div class="card-header fs-6 fw-bold text-center">Add School</div>
+
+    <div class="card-body">
+      <form [formGroup]="schoolAddForm" class="p-2">
+        <div class="row mb-3">
+          <div class="form-group col-md-6">
+            <label>School</label>
+
+            <div class="p-grid p-fluid">
+              <p-dropdown
+                [options]="schools"
+                [(ngModel)]="selectedSchool"
+                placeholder="Select a School"
+                [filter]="true"
+                filterBy="name"
+                optionLabel="name"
+                optionValue="id"
+                [showClear]="true"
+                formControlName="schoolId"
+              ></p-dropdown>
+            </div>
+
+            <small
+              class="text-danger"
+              *ngIf="
+                schoolAddForm.get('schoolId').hasError('required') &&
+                schoolAddForm.get('schoolId').touched
+              "
+              >*School is required.</small
+            >
+          </div>
+
+          <div class="form-group col-md-6">
+            <label>Department</label>
+
+            <div class="p-grid p-fluid">
+              <p-dropdown
+                [options]="departments"
+                [(ngModel)]="selectedDepartment"
+                placeholder="Select a Department"
+                [filter]="true"
+                filterBy="name"
+                optionLabel="name"
+                optionValue="id"
+                [showClear]="true"
+                formControlName="departmentId"
+              ></p-dropdown>
+            </div>
+
+            <small
+              class="text-danger"
+              *ngIf="
+                schoolAddForm.get('departmentId').hasError('required') &&
+                schoolAddForm.get('departmentId').touched
+              "
+              >*Department is required.</small
+            >
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label>Start Year</label>
+
+            <div class="p-grid p-fluid">
+              <p-dropdown [options]="years" [(ngModel)]="selectedStartYear" formControlName="startYear" placeholder="Select a start year" [showClear]="true"></p-dropdown>
+            </div>
+            
+            <small
+              class="text-danger"
+              *ngIf="
+                schoolAddForm.get('startYear').hasError('required') &&
+                schoolAddForm.get('startYear').touched
+              "
+              >*Start year is required.</small
+            >
+          </div>
+
+          <div class="form-group col-md-6">
+            <label>Graduation Year</label>
+            <div class="p-grid p-fluid">
+              <p-dropdown [options]="years" [(ngModel)]="selectedGradYear" formControlName="graduationYear" placeholder="Select a graduation year" [showClear]="true"></p-dropdown>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <button
+            [disabled]="!schoolAddForm.valid"
+            class="btn btn-success mt-3"
+            (click)="addSchool()"
+          >
+            Add School
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <app-candidate-school-list></app-candidate-school-list>
+</div>
+

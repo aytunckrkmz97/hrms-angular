@@ -1,0 +1,73 @@
+<div class="container w-75 mt-3">
+  <div class="card mb-4">
+    <div class="card-header fs-6 fw-bold text-center">Add Language</div>
+
+    <div class="card-body">
+      <form [formGroup]="languageAddForm" class="p-2">
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label>Language</label>
+            <div class="p-grid p-fluid">
+              <p-dropdown
+                [options]="languages"
+                [(ngModel)]="selectedLanguage"
+                placeholder="Select a Language"
+                [filter]="true"
+                filterBy="name"
+                optionLabel="name"
+                optionValue="id"
+                [showClear]="true"
+                formControlName="languageId"
+              ></p-dropdown>
+            </div>
+            <small
+              class="text-danger"
+              *ngIf="
+                languageAddForm.get('languageId').hasError('required') &&
+                languageAddForm.get('languageId').touched
+              "
+              >*Language is required.</small
+            >
+          </div>
+
+          <div class="form-group col-md-6">
+            <label>Language Level</label>
+            <div class="p-grid p-fluid">
+              <p-dropdown
+                [options]="languageLevels"
+                [(ngModel)]="selectedLanguageLevel"
+                placeholder="Select a Language Level"
+                optionLabel="title"
+                optionValue="title"
+                [showClear]="true"
+                formControlName="languageLevel"
+              ></p-dropdown>
+            </div>
+            <small
+              class="text-danger"
+              *ngIf="
+                languageAddForm.get('languageLevel').hasError('required') &&
+                languageAddForm.get('languageLevel').touched
+              "
+              >*Language level is required.</small
+            >
+          </div>
+        </div>
+
+        <div class="text-center">
+          <button
+            [disabled]="!languageAddForm.valid"
+            class="btn btn-success mt-3"
+            (click)="addLanguage()"
+          >
+            Add Language
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <app-candidate-language-list></app-candidate-language-list>
+</div>
+
+

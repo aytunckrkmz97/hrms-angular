@@ -1,0 +1,76 @@
+<div class="hero">
+  <div class="backdrop">
+    <img
+      src="https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+      alt=""
+      class="image"
+    />
+  </div>
+
+  <div class="pane">
+    <h1 class="fw-bold w-75">
+      New <span class="text-success">offers</span> are waiting for you
+    </h1>
+
+    <div class="d-flex ms-1 align-items-center mt-5">
+      <div class="pe-5">
+        <h1 class="count">{{ jobAdvertisementCount }}</h1>
+        <span class="blue">offers</span>
+      </div>
+      <span
+        style="width: 64px; height: 64px"
+        class="
+          fw-bold
+          bg-light
+          rounded-circle
+          d-flex
+          justify-content-center
+          align-items-center
+        "
+        >in</span
+      >
+      <div class="px-5">
+        <h1 class="count">{{ employerCount }}</h1>
+        <span class="blue">companies</span>
+      </div>
+    </div>
+    <a
+      class="
+        w-50
+        btn btn-success
+        px-4
+        text-light
+        browse
+        mt-4
+        blue
+        text-decoration-none
+      "
+      routerLink="/job-list"
+      >Browse jobs <i class="ms-2 bi bi-arrow-right"></i
+    ></a>
+  </div>
+</div>
+
+<div class="spacer layer1">
+  <div class="container">
+    <h1 class="fw-bold position">Job Positions</h1>
+    <app-position-card></app-position-card>
+  </div>
+</div>
+
+<section class="green">
+  <div class="container">
+    <div class="d-flex align-items-center">
+      <h1 class="fw-bold text-light">Recently Added Job Offers</h1>
+      <a
+        class="d-flex align-items-center offers text-light text-decoration-none"
+        routerLink="/job-list"
+        >All offers <i class="ms-2 bi bi-arrow-right"></i
+      ></a>
+    </div>
+    <app-job-card></app-job-card>
+  </div>
+</section>
+
+<div class="spacer layer2"></div>
+<app-footer></app-footer>

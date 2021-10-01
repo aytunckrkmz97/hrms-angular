@@ -1,0 +1,117 @@
+<nav class="navbar navbar-dark bg-dark" *ngIf="checkSystemEmployee()">
+  <div class="container">
+    <span class="text-secondary"
+      >Notice: You have currently logged as system employee.</span
+    >
+  </div>
+</nav>
+
+<nav
+  style="background-color: #ecf3f5"
+  class="
+    d-flex
+    flex-wrap
+    align-items-center
+    justify-content-center justify-content-md-between
+    py-2
+    navbar navbar-expand-lg navbar-light
+  "
+>
+  <div class="container">
+    <a class="navbar-brand text-success fw-bold fs-3" href="#"
+      ><i class="bi bi-stack"></i> job<span class="text-dark">4</span
+      >u
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <ul
+      class="navbar-nav col-12 col-md-auto mb-2 justify-content-center mb-md-0"
+    >
+      <li class="nav-item dropdown">
+        <a
+        routerLinkActive="active-item"
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Browse jobs
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li>
+            <a class="dropdown-item" routerLink="/job-list" 
+              >Job Advertisements</a
+            >
+          </li>
+          <li><hr class="dropdown-divider" /></li>
+          <li>
+            <a class="dropdown-item" routerLink="/candidate-list"
+              >Candidate List</a
+            >
+          </li>
+          <li><hr class="dropdown-divider" /></li>
+          <li>
+            <a class="dropdown-item" routerLink="/employer-list"
+              >Employer List</a
+            >
+          </li>
+        </ul>
+      </li>
+
+      <app-navi-system-employee></app-navi-system-employee>
+
+      <app-navi-employer></app-navi-employer>
+
+      <app-navi-candidate></app-navi-candidate>
+    </ul>
+
+    <div class="d-flex text-end">
+      <div *ngIf="checkUser(); else notLoginedUser">
+        <app-user-info></app-user-info>
+      </div>
+
+      <div>
+        <ng-template #notLoginedUser>
+          <a class="nav-link me-2" routerLink="/login"> Login </a>
+
+          <div class="dropdown me-2">
+            <button
+              class="btn btn-sign dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Create account
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li>
+                <a class="dropdown-item" routerLink="/candidate-sign"
+                  >Sign as candidate</a
+                >
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" routerLink="/employer-sign"
+                  >Sign as employer</a
+                >
+              </li>
+            </ul>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</nav>

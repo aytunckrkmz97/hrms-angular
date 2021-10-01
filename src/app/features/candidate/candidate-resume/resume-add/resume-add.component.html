@@ -1,0 +1,38 @@
+<div class="container w-75 mt-3">
+  <div class="card">
+    <div class="card-header bg-success fs-6 text-light fw-bold text-center">Add Resume</div>
+  
+    <div class="card-body">
+      <form [formGroup]="resumeAddForm" class="p-2">
+        <div class="form-group">
+          <label>Title</label>
+          <input
+            class="form-control"
+            type="text"
+            id="title"
+            formControlName="title"
+            placeholder="Please enter your resume title"
+          />
+          <small
+            class="text-danger"
+            *ngIf="
+              resumeAddForm.get('title').hasError('required') &&
+              resumeAddForm.get('title').touched
+            "
+            >*Resume title is required.</small
+          >
+        </div>
+    
+        <div class="text-center">
+          <button
+          [disabled]="!resumeAddForm.valid"
+          class="btn btn-success mt-3"
+          (click)="addCv()"
+        >
+          Add Resume
+        </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
